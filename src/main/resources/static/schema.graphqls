@@ -1,0 +1,62 @@
+type Query {
+    getClassroomByStudent(token: String!): [Classroom]
+    getAssignmentsByClassroom(classroomId: ID!): [Assignment!]!
+}
+type Assignment {
+    id: ID!
+    title: String!
+    description: String!
+    deadline: String!
+    created: String!
+    urlAssignment: [String!]!
+    totalGrades: String
+    classroom: Classroom!
+    submissions: [Submission!]!
+}
+type Submission {
+    id: ID!
+    urlSubmission: String!
+    status: Boolean!
+    grade: Float
+    student: User!
+}
+
+type Classroom {
+    id: ID!
+    name: String!
+    studentNumber: Int!
+    code: String!
+    profileImage: String
+    createdAt: String!
+    teacher: User
+    students: [User!]!
+}
+type User {
+    id: ID!
+    username: String!
+    firstName: String!
+    lastName: String!
+    school: String!
+    registrationNumber: String!
+    phone: String!
+    address: String!
+    className: String
+    nationality: Nationality!
+    email: String!
+    profileImage: String
+    birthday: String!
+    roles: [Role!]!
+}
+
+type Role {
+    id: ID!
+    name: String!
+}
+
+type Nationality {
+    id: ID!
+    name: String!
+}
+
+
+
